@@ -16,7 +16,7 @@ class App extends Component {
 
   handleclick() {
     const { firstNameValue, secondNameValue } = this.state;
-    if (firstNameValue.length === 0 && secondNameValue.length === 0) {
+    if (firstNameValue.length === 0 || secondNameValue.length === 0) {
       this.setState({ result: "Please Enter valid input" });
       return;
     }
