@@ -60,6 +60,7 @@ class App extends Component {
       <div id="main">
         {/* Do not remove the main div */}
         <input
+          name="name1"
           type="text"
           placeholder="Enter first name"
           value={this.state.firstNameValue}
