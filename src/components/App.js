@@ -16,6 +16,10 @@ class App extends Component {
 
   handleclick() {
     const { firstNameValue, secondNameValue } = this.state;
+    if (firstNameValue.length === 0 && secondNameValue.length === 0) {
+      this.setState({ result: "Please Enter valid input" });
+      return;
+    }
     console.log(firstNameValue, secondNameValue);
 
     const flame = [
@@ -45,6 +49,7 @@ class App extends Component {
     const sumLength = name1.length + name2.length;
 
     const resultIndex = sumLength % 6;
+    console.log(resultIndex);
 
     this.setState({ result: flame[resultIndex] });
   }
@@ -64,12 +69,14 @@ class App extends Component {
           data-testid="input1"
           type="text"
           placeholder="Enter first name"
+          name="name1"
           value={this.state.firstNameValue}
           onChange={(e) => this.setState({ firstNameValue: e.target.value })}
         ></input>
         <input
           data-testid="input2"
           type="text"
+          name="name2"
           value={this.state.secondNameValue}
           placeholder="Enter second name"
           onChange={(e) => this.setState({ secondNameValue: e.target.value })}
